@@ -10,15 +10,24 @@
   <meta property="og:description" content="Transforma tu chatarra electrónica en un mejor futuro. Soluciones certificadas de reciclaje y destrucción segura.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="icon" type="image/png" href="assets/logo-icon.png">
+  <link rel="preload" as="image" href="assets/mascot-idle.png">
+  <link rel="preload" as="image" href="assets/mascot-wave.png">
+  <link rel="preload" as="image" href="assets/mascot-flex.png">
+  <link rel="preload" as="image" href="assets/mascot-walk.png">
 </head>
 <body>
+
+  <!-- ============ FULL-PAGE CIRCUIT BOARD CANVAS ============ -->
+  <canvas id="circuit-bg" class="circuit-canvas"></canvas>
+  <div class="scanline-overlay"></div>
+
 
   <!-- ============ NAVIGATION ============ -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#" class="nav-logo">
-        <img src="assets/logo.png" alt="Keysertron Logo" id="nav-logo-img">
+        <img src="assets/logo-icon.png" alt="Keysertron Logo" id="nav-logo-img">
         <span class="nav-logo-text">KEYSER<span>TRON</span></span>
       </a>
       <div class="nav-links" id="nav-links">
@@ -45,48 +54,56 @@
     </div>
     <div class="hero-particles" id="hero-particles"></div>
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-          Reciclaje Certificado y Sostenible
-        </div>
-        <h1 class="hero-title">
-          Transforma tu chatarra<br>
-          <span class="gradient-text">en un mejor futuro</span>
-        </h1>
-        <p class="hero-description">
-          Soluciones integrales en reciclaje de residuos electrónicos. 
-          Protegemos tus datos, cuidamos el planeta y cumplimos con todas las normativas ambientales.
-        </p>
-        <div class="hero-buttons">
-          <a href="#contacto" class="btn btn-primary">
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
-            Solicitar Recolección
-          </a>
-          <a href="#servicios" class="btn btn-secondary">
-            Conocer Servicios
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+            Reciclaje Certificado y Sostenible
+          </div>
+          <h1 class="hero-title">
+            Transforma tu chatarra<br>
+            <span class="gradient-text">en un mejor futuro</span>
+          </h1>
+          <p class="hero-description">
+            Soluciones integrales en reciclaje de residuos electrónicos. 
+            Protegemos tus datos, cuidamos el planeta y cumplimos con todas las normativas ambientales.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              Solicitar Recolección
+            </a>
+            <a href="#servicios" class="btn btn-secondary">
+              Conocer Servicios
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-value"><span class="counter" data-target="5000">0</span>+</div>
+              <div class="hero-stat-label">Toneladas Recicladas</div>
+            </div>
+            <div>
+              <div class="hero-stat-value"><span class="counter" data-target="200">0</span>+</div>
+              <div class="hero-stat-label">Empresas Confían</div>
+            </div>
+            <div>
+              <div class="hero-stat-value"><span class="counter" data-target="100">0</span>%</div>
+              <div class="hero-stat-label">Datos Destruidos</div>
+            </div>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div>
-            <div class="hero-stat-value"><span class="counter" data-target="5000">0</span>+</div>
-            <div class="hero-stat-label">Toneladas Recicladas</div>
-          </div>
-          <div>
-            <div class="hero-stat-value"><span class="counter" data-target="200">0</span>+</div>
-            <div class="hero-stat-label">Empresas Confían</div>
-          </div>
-          <div>
-            <div class="hero-stat-value"><span class="counter" data-target="100">0</span>%</div>
-            <div class="hero-stat-label">Datos Destruidos</div>
-          </div>
+        <div class="hero-mascot">
+          <div class="mascot-glow"></div>
+          <img src="assets/mascot-idle.png" alt="Keysertron Mascota - Robot reciclador" class="mascot-img" id="mascot-img"
+               data-frames='["assets/mascot-idle.png","assets/mascot-wave.png","assets/mascot-flex.png","assets/mascot-walk.png"]'>
+          <div class="mascot-shadow"></div>
         </div>
       </div>
     </div>
@@ -94,6 +111,8 @@
 
   <!-- ============ SERVICES SECTION ============ -->
   <section class="services section" id="servicios">
+    <div class="circuit-corner circuit-corner-tl"></div>
+    <div class="circuit-corner circuit-corner-tr"></div>
     <div class="container">
       <div class="section-header reveal">
         <div class="section-label">Lo que hacemos</div>
@@ -225,6 +244,8 @@
 
   <!-- ============ PROCESS SECTION ============ -->
   <section class="process section" id="proceso">
+    <div class="circuit-corner circuit-corner-bl"></div>
+    <div class="circuit-corner circuit-corner-br"></div>
     <div class="container">
       <div class="section-header reveal">
         <div class="section-label">Cómo Funciona</div>
@@ -466,7 +487,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="assets/logo.png" alt="Keysertron Logo">
+            <img src="assets/logo-icon.png" alt="Keysertron Logo">
             <span class="footer-logo-text">KEYSER<span>TRON</span></span>
           </div>
           <p>Transformamos tu chatarra electrónica en un mejor futuro. Reciclaje seguro, certificado y sostenible para empresas.</p>
@@ -529,7 +550,7 @@
 
   <div class="chatbot-window" id="chatbot-window">
     <div class="chatbot-header">
-      <div class="chatbot-avatar">🤖</div>
+      <div class="chatbot-avatar"><img src="assets/mascot-idle.png" alt="Keysertron" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
       <div class="chatbot-header-info">
         <h4>Keysertron Bot</h4>
         <p><span class="chatbot-online-dot"></span> En línea • Respuesta inmediata</p>
@@ -548,7 +569,9 @@
     </div>
   </div>
 
+  <script src="js/circuit-bg.js"></script>
   <script src="js/main.js"></script>
   <script src="js/chatbot.js"></script>
+  <script src="js/mascot.js"></script>
 </body>
 </html>
