@@ -17,53 +17,61 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Chatbot Knowledge Base ----
   const responses = {
     greeting: {
-      text: '¡Hola! 👋 Soy el asistente virtual de Keysertron. ¿En qué puedo ayudarte hoy?',
-      quickReplies: ['¿Qué servicios ofrecen?', '¿Cómo funciona el proceso?', '¿Qué equipos aceptan?', 'Agendar recolección', '¿Dónde están ubicados?']
+      text: '¡Hola! 👋 Soy el asistente virtual de Keysertron. ¿En qué puedo ayudarte hoy?\n\nEn Keysertron ayudamos a empresas a cumplir sus normativas ambientales, proteger su información y contribuir al medio ambiente. ¡Recolección SIN COSTO! 🌿',
+      quickReplies: ['¿Qué equipos aceptan?', '¿Qué servicios ofrecen?', '¿Cómo funciona el proceso?', 'Solicitar recolección', '¿Quiénes son sus clientes?']
     },
     servicios: {
-      text: '🌿 Ofrecemos 4 servicios principales:\n\n♻️ **Reciclaje Corporativo** — Gestión integral de residuos electrónicos para empresas.\n\n🔒 **Destrucción Segura de Datos** — Eliminación garantizada con certificado legal.\n\n🚛 **Recolección Certificada** — Logística especializada y documentada.\n\n🛡️ **Seguridad Empresarial** — Protección de activos digitales en la disposición final.\n\n¿Te interesa algún servicio en particular?',
-      quickReplies: ['Reciclaje Corporativo', 'Destrucción de Datos', 'Solicitar cotización', '¿Cómo funciona?']
+      text: '🌿 Ofrecemos un servicio integral "todo en uno":\n\n🚛 **Recolección en Sitio** — Recogemos tus equipos directamente en tus instalaciones.\n\n🔒 **Destrucción de Datos** — Borrado y destrucción física de discos duros con certificado.\n\n♻️ **Clasificación y Reciclaje** — Procesamiento ecológico de cada componente.\n\n📄 **Certificado de Destrucción** — Documento oficial para auditorías ambientales.\n\n✅ **Transporte Especializado** — Unidades equipadas y documentadas.\n\n¡Un solo proveedor para todo el proceso!',
+      quickReplies: ['Destrucción de Datos', 'Solicitar recolección', '¿Qué equipos aceptan?', '¿Cuánto cuesta?']
+    },
+    clientes: {
+      text: '🏆 Hemos trabajado con empresas líderes en México:\n\n🏦 **Banca:** Banamex, Bancomer, Scotiabank\n🛒 **Retail:** Walmart, Bodega Aurrerá, Sam\'s Club\n⚡ **Energía & Telecom:** CFE, Telmex\n🏛️ **Gobierno & Academia:** SEP, Cinvestav, Gobierno de Chiapas\n🏭 **Industrial & Petrolero:** Cotemar\n\n¡Confían en nosotros para proteger su información y cumplir con sus normativas ambientales!',
+      quickReplies: ['¿Qué servicios ofrecen?', 'Solicitar recolección', '¿Por qué elegirnos?']
+    },
+    diferenciadores: {
+      text: '🌟 ¿Por qué elegir Keysertron?\n\n✅ **Servicio sin fines de lucro** — Accesible para todos\n✅ **Todo en un solo proveedor** — Recolección, transporte, destrucción, reciclaje y certificado\n✅ **Protección total de información** — Manejo seguro y confidencial de datos\n✅ **Cumplimiento ambiental** — Normativas nacionales cumplidas\n✅ **Atención personalizada** — Trato directo y cercano\n✅ **Experiencia con grandes corporativos** — Banamex, Walmart, CFE, Telmex y más\n✅ **Procesos controlados** — Cada paso documentado y verificable',
+      quickReplies: ['¿Quiénes son sus clientes?', 'Solicitar recolección', '¿Cómo funciona?']
     },
     proceso: {
-      text: '📋 ¡Es muy sencillo! Nuestro proceso consta de 4 pasos:\n\n**1️⃣ Contacto** — Nos comunicas tus necesidades.\n\n**2️⃣ Recolección** — Recogemos tus equipos con logística segura.\n\n**3️⃣ Procesamiento** — Clasificamos y procesamos cada componente.\n\n**4️⃣ Certificación** — Recibes un certificado de destrucción y reciclaje.\n\n¡Todo el proceso es seguro, documentado y cumple normativas ambientales!',
-      quickReplies: ['Agendar recolección', '¿Qué equipos aceptan?', 'Solicitar cotización']
+      text: '📋 Nuestro proceso completo en 7 pasos:\n\n**1️⃣ Solicitud** — Indícanos volumen, tipo de equipo, ubicación y servicio requerido.\n\n**2️⃣ Logística** — Evaluamos volumen y distancia para planificar el servicio.\n\n**3️⃣ Programación** — Acordamos fecha y hora según tu operación.\n\n**4️⃣ Transporte** — Llegamos a tu sitio con unidades especializadas.\n\n**5️⃣ Destrucción** — Destrucción controlada de equipos y datos.\n\n**6️⃣ Reciclaje** — Clasificación y procesamiento ecológico.\n\n**7️⃣ Certificado** — Entregamos tu certificado oficial de destrucción.',
+      quickReplies: ['Solicitar recolección', '¿Qué equipos aceptan?', '¿Cuánto cuesta?']
     },
     equipos: {
-      text: '💻 Aceptamos una amplia variedad de residuos electrónicos:\n\n• Computadoras de escritorio y laptops\n• Servidores y equipos de red\n• Impresoras y escáneres\n• Monitores y pantallas\n• Teléfonos y tablets\n• Cables y accesorios\n• Discos duros y memorias\n• Equipos de telecomunicaciones\n• Baterías electrónicas\n• Componentes electrónicos\n\n¡Si no ves tu equipo en la lista, pregúntanos! 😊',
-      quickReplies: ['Agendar recolección', 'Solicitar cotización', '¿Cómo funciona?']
+      text: '💻 Manejamos una amplia variedad de residuos electrónicos:\n\n🖥️ **Cómputo y Movilidad:** CPU, Laptops, Tablets, Teléfonos\n\n🖨️ **Oficina:** Impresoras, Módems, No-break\n\n🌐 **Redes y Telecomunicaciones:** Servidores, Cableado, Telefonía\n\n⚡ **Industriales y Corporativos:** Transformadores, Medidores de luz, Cajeros automáticos (ATM), Terminales punto de venta (TPV)\n\n🔌 **Componentes:** Tarjetas eléctricas, componentes electrónicos\n\n¡Consúltanos para cualquier equipo corporativo u obsoleto!',
+      quickReplies: ['Solicitar recolección', '¿Qué servicios ofrecen?', '¿Cómo funciona?']
     },
     recoleccion: {
-      text: '🚛 ¡Excelente! Para agendar una recolección necesitamos:\n\n📌 Nombre de tu empresa\n📌 Dirección de recolección\n📌 Tipo y cantidad aproximada de equipos\n📌 Fecha preferida\n\n📝 Te invito a llenar nuestro **formulario de contacto** para que un asesor te contacte en menos de 24 horas.\n\n👉 ¿Te redirijo al formulario?',
+      text: '🚛 ¡Excelente! Para solicitar una recolección necesitamos:\n\n📌 **Volumen** — Kilogramos o toneladas aproximadas\n📌 **Tipo de equipo** — CPU, servidores, impresoras, industriales, etc.\n📌 **Ubicación** — Ciudad y dirección\n📌 **Servicio requerido** — Recolección, destrucción, reciclaje o integral\n\n⭐ **¡El servicio de recolección es SIN COSTO!**\n\n📝 Llena nuestro formulario de contacto y un asesor te contactará en menos de 24 horas.',
       quickReplies: ['Ir al formulario', '¿Qué equipos aceptan?', '¿Cuánto cuesta?']
     },
     ubicacion: {
-      text: '📍 Estamos ubicados en:\n\n**México, Ciudad de México**\n\n🕐 Horario: Lunes a Viernes, 9:00 - 18:00\n📧 Email: info@keysertron.com\n📱 Síguenos en redes:\n• Facebook: @keysertron\n• Instagram: @keysertron\n• TikTok: @keysertron\n\n¡Estamos siempre disponibles para atenderte!',
-      quickReplies: ['Agendar recolección', '¿Qué servicios ofrecen?', 'Solicitar cotización']
+      text: '📍 Estamos ubicados en:\n\n**México, Ciudad de México**\n\n🕐 Horario: Lunes a Viernes, 9:00 - 18:00\n📧 Email: info@keysertron.com\n📱 Redes sociales:\n• Facebook: @keysertron\n• Instagram: @keysertron\n• TikTok: @keysertron\n\n¡Atendemos en toda la República Mexicana!',
+      quickReplies: ['Solicitar recolección', '¿Qué servicios ofrecen?', 'Ir al formulario']
     },
     cotizacion: {
-      text: '💰 El costo de nuestros servicios depende de:\n\n• Tipo de residuos electrónicos\n• Cantidad de equipos\n• Ubicación de recolección\n• Servicios adicionales (destrucción de datos, certificados)\n\n📝 Te invito a completar nuestro **formulario de contacto** y un asesor te enviará una cotización personalizada en menos de 24 horas.\n\n¿Te redirijo al formulario?',
+      text: '💰 El costo depende de:\n\n• **Volumen** — Kilogramos o toneladas de residuos\n• **Tipo de equipo** — Cómputo, industrial, telecomunicaciones, etc.\n• **Ubicación** — Ciudad y distancia\n• **Servicio requerido** — Recolección, destrucción, reciclaje o integral\n\n⭐ **¡La recolección básica es SIN COSTO!**\n\n📝 Llena nuestro formulario y recibirás una cotización personalizada en menos de 24 horas.',
       quickReplies: ['Ir al formulario', '¿Qué servicios ofrecen?', '¿Cómo funciona?']
     },
     reciclaje_corporativo: {
-      text: '♻️ **Reciclaje Corporativo**\n\nNuestro servicio de reciclaje corporativo incluye:\n\n✅ Evaluación de los residuos electrónicos\n✅ Plan de gestión personalizado\n✅ Recolección en tus instalaciones\n✅ Procesamiento ecológico certificado\n✅ Informe detallado de reciclaje\n✅ Certificado de cumplimiento ambiental\n\nIdeal para empresas que necesitan renovar su parque tecnológico de forma responsable.',
-      quickReplies: ['Solicitar cotización', 'Destrucción de Datos', 'Agendar recolección']
+      text: '♻️ **Clasificación y Reciclaje**\n\nNuestro servicio incluye:\n\n✅ Evaluación de residuos electrónicos\n✅ Plan de gestión personalizado\n✅ Recolección en tus instalaciones\n✅ Procesamiento ecológico certificado\n✅ Informe detallado de reciclaje\n✅ **Certificado de Destrucción** oficial\n\nIdeal para empresas que necesitan cumplir sus normativas ambientales.',
+      quickReplies: ['Solicitar recolección', 'Destrucción de Datos', '¿Cuánto cuesta?']
     },
     destruccion_datos: {
-      text: '🔒 **Destrucción Segura de Datos**\n\nGarantizamos la eliminación total de información sensible:\n\n✅ Borrado seguro certificado (NIST 800-88)\n✅ Destrucción física de medios de almacenamiento\n✅ Certificado legal de destrucción\n✅ Cadena de custodia documentada\n✅ Cumplimiento con LFPDPPP\n\n🛡️ Protege tu empresa de fuga de datos y cumple con la normativa.',
-      quickReplies: ['Solicitar cotización', 'Reciclaje Corporativo', 'Agendar recolección']
+      text: '🔒 **Destrucción Segura de Datos**\n\nGarantizamos la eliminación total de información sensible:\n\n✅ Borrado seguro certificado de medios digitales\n✅ Destrucción física de discos duros\n✅ **Certificado de Destrucción** oficial\n✅ Cadena de custodia documentada\n✅ Protección total ante fugas de información\n\n🛡️ Protege tu empresa y cumple con la normativa de protección de datos.',
+      quickReplies: ['Solicitar recolección', '¿Qué servicios ofrecen?', '¿Cuánto cuesta?']
     },
     formulario: {
-      text: '📝 ¡Perfecto! Te redirijo al formulario de contacto ahora mismo. Solo baja un poco en la página y encontrarás el formulario.',
+      text: '📝 ¡Perfecto! Te redirijo al formulario de contacto. Baja un poco en la página, completa tus datos y un asesor te contactará en menos de 24 horas.\n\n⭐ Recuerda indicar: volumen, tipo de equipo, ubicación y servicio requerido.',
       quickReplies: ['¿Qué servicios ofrecen?', '¿Cómo funciona?', 'Otra pregunta'],
       action: 'scrollToContact'
     },
     gracias: {
-      text: '😊 ¡Gracias a ti! Fue un placer ayudarte. Si tienes más preguntas, no dudes en escribirme.\n\n🌿 Recuerda: ¡Reciclar es cuidar nuestro planeta!',
-      quickReplies: ['¿Qué servicios ofrecen?', '¿Cómo funciona?', 'Agendar recolección']
+      text: '😊 ¡Gracias a ti! Fue un placer ayudarte. Si tienes más preguntas, no dudes en escribirme.\n\n🌿 En Keysertron ayudamos a las empresas a cumplir sus normativas ambientales, proteger su información y contribuir al medio ambiente. ¡Juntos hacemos la diferencia!',
+      quickReplies: ['¿Qué servicios ofrecen?', '¿Cómo funciona?', 'Solicitar recolección']
     },
     default: {
       text: '🤔 Disculpa, no entendí tu pregunta. ¿Puedo ayudarte con alguno de estos temas?',
-      quickReplies: ['¿Qué servicios ofrecen?', '¿Cómo funciona el proceso?', '¿Qué equipos aceptan?', 'Agendar recolección', 'Solicitar cotización']
+      quickReplies: ['¿Qué equipos aceptan?', '¿Qué servicios ofrecen?', '¿Cómo funciona?', 'Solicitar recolección', '¿Quiénes son sus clientes?']
     }
   };
 
@@ -72,12 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const msg = message.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     
     if (msg.match(/hola|buenos|buenas|hey|hi|saludos|que tal/)) return responses.greeting;
-    if (msg.match(/servicio|ofrec|hacen|brind/)) return responses.servicios;
-    if (msg.match(/proceso|como funciona|pasos|etapas|como es/)) return responses.proceso;
-    if (msg.match(/equipo|acept|recib|compu|laptop|servidor|impresora|monitor|dispositivo|que reciclan/)) return responses.equipos;
-    if (msg.match(/recolec|recog|agenda|programar|pasar por|venir/)) return responses.recoleccion;
+    if (msg.match(/cliente|trabaj|banamex|bancomer|walmart|cfe|telmex|scotiabank|cinvestav|sep|cotemar|chiapas|quienes/)) return responses.clientes;
+    if (msg.match(/por que|diferenci|confiab|mejor|ventaj|elegirnos|elegir/)) return responses.diferenciadores;
+    if (msg.match(/servicio|ofrec|hacen|brind|incluye/)) return responses.servicios;
+    if (msg.match(/proceso|como funciona|pasos|etapas|como es|solicitud/)) return responses.proceso;
+    if (msg.match(/equipo|acept|recib|compu|laptop|servidor|impresora|tablet|telefon|cajero|tpv|transformador|cableado|no.break|modem|que reciclan|industriale/)) return responses.equipos;
+    if (msg.match(/recolec|recog|agenda|programar|pasar por|venir|solicitar/)) return responses.recoleccion;
     if (msg.match(/donde|ubicac|direccion|oficina|localiz|ciudad|pais/)) return responses.ubicacion;
-    if (msg.match(/precio|costo|cuanto|cotiz|tarifa|valor|presupuesto/)) return responses.cotizacion;
+    if (msg.match(/precio|costo|cuanto|cotiz|tarifa|valor|presupuesto|sin costo/)) return responses.cotizacion;
     if (msg.match(/reciclaje corporativo|reciclaje empresarial|reciclaje empresa/)) return responses.reciclaje_corporativo;
     if (msg.match(/destrucc|dato|segur|borr|informacion|disco/)) return responses.destruccion_datos;
     if (msg.match(/formulario|ir al form|llenar|contacto/)) return responses.formulario;
