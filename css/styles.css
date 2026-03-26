@@ -224,7 +224,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 9999;
   padding: 16px 0;
   transition: all var(--transition-normal);
 }
@@ -313,8 +313,9 @@ h1, h2, h3, h4, h5, h6 {
   gap: 5px;
   cursor: pointer;
   position: relative;
-  z-index: 1100;
+  z-index: 10000;
   pointer-events: auto;
+  touch-action: manipulation;
   padding: 8px;
   background: none;
   border: none;
@@ -1728,6 +1729,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   width: 380px;
   height: 380px;
+  pointer-events: none;
   border: 1px solid rgba(0, 230, 118, 0.15);
   border-radius: 50%;
   top: 50%;
@@ -1750,6 +1752,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   width: 440px;
   height: 440px;
+  pointer-events: none;
   border: 1px dashed rgba(0, 230, 118, 0.06);
   border-radius: 50%;
   top: 50%;
