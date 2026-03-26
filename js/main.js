@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function createParticles() {
     const colors = ['rgba(46,125,50,0.4)', 'rgba(76,175,80,0.3)', 'rgba(0,230,118,0.2)', 'rgba(2,119,189,0.3)'];
     
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 10; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
       
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Circuit Line Particles ----
   function createCircuitLines() {
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 3; i++) {
       const line = document.createElement('div');
       line.className = 'particle';
       
@@ -203,15 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Parallax Effect on Hero ----
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const heroBg = document.querySelector('.hero-bg img');
-    
-    if (heroBg && scrolled < window.innerHeight) {
-      heroBg.style.transform = `translateY(${scrolled * 0.3}px) scale(1.1)`;
-    }
-  });
+  // Parallax disabled for performance
+  // window.addEventListener('scroll', ...) removed
 
   // ---- Service Card Tilt Effect ----
   document.querySelectorAll('.service-card').forEach(card => {

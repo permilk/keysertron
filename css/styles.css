@@ -138,8 +138,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   color: var(--green-light);
   margin-bottom: 16px;
 }

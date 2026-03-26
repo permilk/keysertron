@@ -19,8 +19,8 @@
 
   // ---- Configuration ----
   const CONFIG = {
-    nodeCount: 60,
-    connectionDistance: 180,
+    nodeCount: 30,
+    connectionDistance: 150,
     nodeRadius: 2.5,
     lineWidth: 1,
     pulseSpeed: 120,
@@ -29,8 +29,8 @@
     glowColor: 'rgba(0, 230, 118, 0.6)',
     nodeColor: 'rgba(76, 175, 80, 0.4)',
     activeNodeColor: 'rgba(0, 230, 118, 0.9)',
-    mouseRadius: 200,
-    gridSpacing: 50,
+    mouseRadius: 160,
+    gridSpacing: 60,
   };
 
   function resize() {
