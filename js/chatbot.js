@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       quickReplies: ['Ir al formulario', '¿Qué equipos aceptan?', '¿Cuánto cuesta?']
     },
     ubicacion: {
-      text: 'Estamos ubicados en México, Ciudad de México.\n\nHorario: lunes a viernes, 9:00 - 18:00\nCorreo: info@keysertron.com\nRedes: @keysertron en Facebook, Instagram y TikTok\n\nAtendemos en toda la República Mexicana.',
+      text: 'Estamos ubicados en México, Ciudad de México.\n\nHorario: lunes a viernes, 9:00 - 18:00\nCorreo: contacto@keysertron.com\nRedes: @keysertron en Facebook, Instagram y TikTok\n\nAtendemos en toda la República Mexicana.',
       quickReplies: ['Solicitar recolección', '¿Qué servicios ofrecen?', 'Ir al formulario']
     },
     cotizacion: {
